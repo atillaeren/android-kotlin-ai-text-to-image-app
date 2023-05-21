@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.HomeFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/exploreTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explore"
+        android:textSize="25sp"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/loremTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem Ipsum"
+        android:textSize="25sp"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/exploreTV"/>
+
+    <TextView
+        android:id="@+id/createBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_home_create"
+        android:fontFamily="@font/inter"
+        android:gravity="center"
+        android:text="Create"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline1" />
+
+    <ImageView
+        android:id="@+id/settingsIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_home_settings"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintTop_toTopOf="@id/exploreTV"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/historyIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_home_history"
+        app:layout_constraintTop_toTopOf="@id/exploreTV"
+        app:layout_constraintEnd_toStartOf="@id/settingsIcon"/>
+
+    <TextView
+        android:id="@+id/promptTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_prompt"
+        android:textSize="18sp"
+        android:fontFamily="@font/inter"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/loremTV"/>
+
+    <LinearLayout
+        android:id="@+id/topLinear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/promptTV">
+
+        <EditText
+            android:id="@+id/promptET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:hint="Type Something..."
+            android:textSize="12sp"
+            android:fontFamily="@font/inter"
+            android:paddingStart="20dp"
+            android:background="@drawable/typebox_home"/>
+
+        <TextView
+            android:id="@+id/exampleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Select From Examples  >"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:background="@drawable/btn_home_selectfromexamples"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toBottomOf="@id/promptET"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_a_category"
+            android:layout_marginTop="25dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/guideline1"
+            app:layout_constraintTop_toBottomOf="@id/exampleTV"/>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/categoryLinear"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/createBtn"
+        app:layout_constraintTop_toBottomOf="@id/topLinear">
+
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/relative2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_home_surrealist"/>
+
+                <TextView
+                    android:id="@+id/surrealistTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Surrealist"
+                    android:fontFamily="@font/inter"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="15dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/surrealistBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_home_use"
+                android:text="Use"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative1"
+            app:layout_constraintBottom_toTopOf="@id/relative3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_home_steampunk"/>
+
+                <TextView
+                    android:id="@+id/steampunkTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Steampunk"
+                    android:fontFamily="@font/inter"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="15dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/steampunkBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_home_use"
+                android:text="Use"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative2"
+            app:layout_constraintBottom_toTopOf="@id/relative4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_home_rick_morty"/>
+
+                <TextView
+                    android:id="@+id/rickmortyTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rick and Morty"
+                    android:fontFamily="@font/inter"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="15dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/rickmortyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_home_use"
+                android:text="Use"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative3"
+            app:layout_constraintBottom_toTopOf="@id/relative5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_home_renaissance"/>
+
+                <TextView
+                    android:id="@+id/renaissanceTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Renaissance Painting"
+                    android:fontFamily="@font/inter"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="15dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/renaissanceBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_home_use"
+                android:text="Use"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative4"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/img_home_portrait"/>
+
+                <TextView
+                    android:id="@+id/portraitTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Portrait Photo"
+                    android:fontFamily="@font/inter"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="15dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/portraitBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_home_use"
+                android:text="Use"
+                android:clickable="true"
+                android:focusable="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"/>
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
